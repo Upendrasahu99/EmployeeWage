@@ -12,13 +12,13 @@ public class EmployeeWage {
 
     public boolean checkEmployeeIsPresentOrAbsent() {
         Random random = new Random();
-        boolean a = random.nextBoolean();
-        if (a == true) {
+        boolean employeePresent = random.nextBoolean();
+        if (employeePresent == true) {
             System.out.println("Employee is Present");
         }else {
             System.out.println("Employee is Absent");
         }
-        return a;
+        return employeePresent;
     }
 
     public static void main(String[] args) {
