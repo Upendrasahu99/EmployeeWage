@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class EmployeeWage {
 
-    String name;
+    String empoloyeeName;
     int employeePresent;
     String employeeType;
     int wagePerHour;
     int totalDailyWage;
-
     int dailyWorkingHour;
+    int totalWorkingDay = 20;
 
-    public EmployeeWage(String name, String employeeType, int wagePerHour) {
-        this.name = name;
+    public EmployeeWage(String employeeName, String employeeType, int wagePerHour) {
+        this.empoloyeeName = employeeName;
         this.employeeType = employeeType;
         this.wagePerHour = wagePerHour;
     }
@@ -41,12 +41,15 @@ public class EmployeeWage {
         }
     }
 
-
     public void calculatingDailyWage() {
         if (employeePresent == 1) {
             this.totalDailyWage = dailyWorkingHour * wagePerHour;
-            System.out.println(employeeType + " employee " + name + " total daily wage is " + totalDailyWage);
+            System.out.println(employeeType + " employee " + empoloyeeName + " total daily wage is " + totalDailyWage);
         }
     }
 
+    public void calculatingMonthlyWages() {
+        int monthlyWage = totalDailyWage * totalWorkingDay;
+        System.out.println("Total monthly wages of employee = " + monthlyWage);
+    }
 }
