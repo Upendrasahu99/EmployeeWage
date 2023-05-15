@@ -5,25 +5,41 @@ import java.util.Random;
 public class EmployeeWage {
 
     String name;
+    boolean employeePresent;
+    String employeeType;
+    int wagePerHour;
+    int totalDailyWage;
 
-    public EmployeeWage(String name) {
+    int dailyWorkingHour;
+
+    public EmployeeWage(String name, String employeeType, int wagePerHour) {
         this.name = name;
+        this.employeeType = employeeType;
+        this.wagePerHour = wagePerHour;
     }
 
-    public boolean checkEmployeeIsPresentOrAbsent() {
+    public void enterDailyWorkingHour() {
+        if (employeeType == "FullTime") {
+           dailyWorkingHour = 8;
+        }
+    }
+
+    public void checkEmployeeIsPresentOrAbsent() {
         Random random = new Random();
-        boolean employeePresent = random.nextBoolean();
+        this.employeePresent = random.nextBoolean();
         if (employeePresent == true) {
             System.out.println("Employee is Present");
-        }else {
+        } else {
             System.out.println("Employee is Absent");
         }
-        return employeePresent;
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program");
-        EmployeeWage employee1 = new EmployeeWage("Rohan");
-        employee1.checkEmployeeIsPresentOrAbsent();
+
+    public void calculatingDailyWage() {
+        if (employeePresent == true) {
+            this.totalDailyWage = dailyWorkingHour * wagePerHour;
+            System.out.println(employeeType + " employee " + name + " total daily wage is " + totalDailyWage);
+        }
     }
+
 }
