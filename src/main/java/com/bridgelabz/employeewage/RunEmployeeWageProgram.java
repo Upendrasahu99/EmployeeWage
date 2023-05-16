@@ -7,6 +7,7 @@ public class RunEmployeeWageProgram {
         employee1.checkEmployeeIsPresentOrAbsent();
         employee1.enterDailyWorkingHour();
         employee1.calculatingDailyWage();
+        employee1.calculatingMonthlyWages();
 
     }
 }
