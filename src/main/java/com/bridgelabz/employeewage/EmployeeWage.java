@@ -21,6 +21,8 @@ public class EmployeeWage {
     public void enterDailyWorkingHour() {
         if (employeeType == "FullTime") {
            dailyWorkingHour = 8;
+        } else if (employeeType == "PartTime") {
+           dailyWorkingHour = 4;
         }
     }
 
