@@ -10,12 +10,16 @@ public class EmployeeWage {
     int wagePerHour;
     int totalDailyWage;
     int dailyWorkingHour;
-    int totalWorkingDay = 20;
+    int totalWorkingDay;
+    int totalHour;
+    int totalPresentDay;
 
-    public EmployeeWage(String employeeName, String employeeType, int wagePerHour) {
+    public EmployeeWage(String employeeName, String employeeType, int wagePerHour, int totalWorkingDay, int totalHour) {
         this.empoloyeeName = employeeName;
         this.employeeType = employeeType;
         this.wagePerHour = wagePerHour;
+        this.totalWorkingDay = totalWorkingDay;
+        this.totalHour = totalHour;
     }
 
     public void enterDailyWorkingHour() {
@@ -42,14 +46,25 @@ public class EmployeeWage {
     }
 
     public void calculatingDailyWage() {
-        if (employeePresent == 1) {
-            this.totalDailyWage = dailyWorkingHour * wagePerHour;
-            System.out.println(employeeType + " employee " + empoloyeeName + " total daily wage is " + totalDailyWage);
+
+        this.totalDailyWage = dailyWorkingHour * wagePerHour;
+        System.out.println(employeeType + " employee " + empoloyeeName + " total daily wage is " + totalDailyWage);
+    }
+
+    public void totalPresentDay() {
+        if (employeeType == "FullTime") {
+            this.totalPresentDay = (totalHour / dailyWorkingHour);
+        } else {
+            this.totalPresentDay = totalWorkingDay;
         }
     }
 
     public void calculatingMonthlyWages() {
-        int monthlyWage = totalDailyWage * totalWorkingDay;
+        enterDailyWorkingHour();
+        calculatingDailyWage();
+        totalPresentDay();
+        int monthlyWage = totalDailyWage * totalPresentDay;
         System.out.println("Total monthly wages of employee = " + monthlyWage);
     }
+
 }
